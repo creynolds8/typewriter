@@ -1,9 +1,16 @@
 const sentence = 'hello there from lighthouse labs';
 
-let index = 1;
-for (const char of sentence) {
+const typewriter = function(str) {
+  let index = 0;
+  for (const char of str) {
+    setTimeout(() => {
+      process.stdout.write(char)
+    }, index * 50)
+    index++;
+  };
   setTimeout(() => {
-    process.stdout.write(char)
-  }, index * 1000)
-  index++;
+    console.log();
+  }, str.length * 50)
 };
+
+typewriter(sentence);
